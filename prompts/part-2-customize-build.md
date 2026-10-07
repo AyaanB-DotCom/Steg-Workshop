@@ -1,190 +1,221 @@
-You are modifying an existing browser-based steganography application that has already been built and is working correctly.
+I already have a working browser-based steganography application built from my workshop starter files.
 
-Your job is to customize the project while preserving its existing core functionality.
+My existing project contains:
 
-## Critical Rule
+`index.html`
+
+`style.css`
+
+`script.js`
+
+The application currently works correctly.
+
+Your task is to MODIFY these existing files and customize the application based on the design and feature choices I provide below.
+
+Do NOT create a new project.
 
 Do NOT rebuild the application from scratch.
 
-Do NOT remove or replace the existing steganography logic unless a change is absolutely necessary.
+Do NOT replace working steganography logic unnecessarily.
 
-The existing application already:
+The goal is to make the existing project feel uniquely mine while preserving its functionality.
 
-- uploads PNG images
-- hides text inside images using LSB steganography
-- downloads encoded PNG images
-- decodes hidden messages
-- runs completely inside the browser
+---
 
-Keep all of that functionality working.
+# Most Important Rule
+
+The existing Encode and Decode functionality already works.
+
+Protect it.
+
+Do not rewrite the core steganography algorithm simply because you are changing the interface.
+
+Modify existing code carefully.
+
+If a requested visual change does not require changes to the encoding or decoding logic, leave that logic alone.
+
+---
+
+# Existing Core Features
+
+The current application already supports:
+
+- PNG image upload
+- image previews
+- LSB steganography
+- UTF-8 / Unicode messages
+- message-capacity checking
+- encoded PNG downloads
+- decoding hidden messages
+- validation of encoded images
+- copy-to-clipboard
+- reset functionality
+- local browser processing
+- error handling
+
+All of these features must continue working after customization.
 
 ---
 
 # My Project Identity
 
-Rename my project to:
+### Project Name
 
-**[PROJECT NAME]**
+`[ENTER YOUR PROJECT NAME]`
 
-The overall theme/style I want is:
+### Visual Theme
 
-**[YOUR VISUAL STYLE]**
+`[ENTER YOUR VISUAL THEME]`
 
-Examples:
+Possible examples:
 
-- cyberpunk terminal
+- retro hacker terminal
+- cyberpunk
 - Y2K
 - Frutiger Aero
 - Windows XP
-- retro hacker terminal
-- futuristic laboratory
-- minimalist
-- government intelligence system
+- classified intelligence system
 - vaporwave
-- sci-fi
-- early-2000s web
-- modern glassmorphism
+- futuristic laboratory
 - arcade
-- something completely original
+- sci-fi spaceship
+- minimalist
+- brutalist
+- early-2000s web
+- modern glass interface
+- horror terminal
+- satellite control system
+- custom original idea
 
-I want the application to feel:
+### I Want the Application to Feel
 
-**[ADJECTIVE 1]**, **[ADJECTIVE 2]**, **[ADJECTIVE 3]**
+`[ADJECTIVE 1]`
+
+`[ADJECTIVE 2]`
+
+`[ADJECTIVE 3]`
+
+Examples:
+
+- mysterious
+- polished
+- nostalgic
+- playful
+- technical
+- futuristic
+- minimal
+- experimental
+- cinematic
 
 ---
 
-# Visual Customization
+# Design Direction
 
-Redesign the existing interface around my chosen theme.
+Redesign the existing interface to fit my chosen visual theme.
 
-Customize elements such as:
+You may modify:
 
-- typography
 - page layout
-- buttons
-- cards
-- borders
+- typography
+- spacing
 - backgrounds
-- icons
-- upload areas
-- image previews
+- cards
+- panels
+- buttons
+- upload controls
 - Encode and Decode sections
-- status messages
+- image-preview styling
+- status indicators
+- error messages
+- success messages
+- navigation
 - animations
-- hover effects
+- hover states
+- responsive layout
 
-The design should feel intentional and consistent rather than randomly styled.
+The theme should feel cohesive.
 
-Do not sacrifice usability for appearance.
+Do not simply apply random colors or effects.
 
-The Encode and Decode sections should remain easy to understand.
+The project should still be easy to use.
+
+Visual design must not make important controls difficult to find or read.
 
 ---
 
 # Features I Want to Add
 
-Add the following features:
-
 ### Feature 1
-**[DESCRIBE YOUR FIRST FEATURE]**
+
+`[DESCRIBE FEATURE]`
 
 ### Feature 2
-**[DESCRIBE YOUR SECOND FEATURE]**
+
+`[DESCRIBE FEATURE]`
 
 ### Optional Feature 3
-**[DESCRIBE AN OPTIONAL THIRD FEATURE]**
 
-Possible ideas include:
+`[DESCRIBE FEATURE OR LEAVE BLANK]`
 
-- drag-and-drop image upload
+Examples of appropriate additions include:
+
+- drag-and-drop image uploads
 - message capacity meter
-- animated encoding progress
-- character counter
+- animated encoding sequence
+- character counter improvements
 - before/after image comparison
-- image information panel
+- image dimensions and file-size display
+- custom download filenames
 - dark/light mode toggle
-- fullscreen image preview
-- improved error messages
-- copy-to-clipboard feedback
-- customizable download filename
-- clear/reset animation
-- steg educational panel
-- visual representation of binary data
-- LSB explanation
-- responsive mobile layout
-- custom loading animations
+- binary-data visualization
+- LSB educational panel
+- improved mobile layout
+- full-screen image preview
+- copy-success feedback
 - keyboard shortcuts
+- collapsible information panels
+- subtle soundless visual effects
+- improved onboarding instructions
 
-You may suggest small improvements that fit the theme, but do not introduce major features that I did not request.
-
----
-
-# User Experience
-
-Improve the overall experience of the application.
-
-The user should always clearly understand:
-
-1. where to upload an image
-2. where to enter a secret message
-3. how to encode the message
-4. how to download the encoded image
-5. how to switch to decoding
-6. how to upload an encoded image
-7. where the recovered message appears
-
-Include clear feedback when actions succeed or fail.
-
-Do not make the interface confusing just to make it visually interesting.
+Do not add major unrelated functionality unless I explicitly request it.
 
 ---
 
-# Preserve Existing Functionality
+# Preserve the Existing Files
 
-After customizing the project, all of these features MUST still work:
+Continue editing:
 
-- PNG image upload
-- PNG image preview
-- LSB message encoding
-- Unicode text support
-- message capacity checks
-- PNG download
-- encoded-image upload
-- hidden-message decoding
-- copy decoded message
-- reset functionality
-- local browser processing
-- error handling
+`index.html`
 
-Do not accidentally break the Encode or Decode systems while changing the interface.
+`style.css`
 
----
+`script.js`
 
-# Privacy
+Do not introduce a new folder structure.
 
-The application must continue operating entirely locally.
+Do not generate a new application separately.
 
-Do NOT:
+Do not rename the existing files.
 
-- upload images
-- upload messages
-- add analytics
-- add tracking
-- use external APIs
-- send data to a server
-- store secret messages in persistent browser storage
+Keep:
 
-Keep the existing privacy message explaining that processing happens locally inside the browser.
+`index.html` → structure
+
+`style.css` → styling
+
+`script.js` → application behavior
+
+Do not place all CSS and JavaScript directly into the HTML file.
 
 ---
 
-# Technology Constraints
+# Critical Technology Constraints
 
 The project must continue using only:
 
 - HTML
 - CSS
-- vanilla JavaScript
+- Vanilla JavaScript
 - built-in browser APIs
 
 Do NOT introduce:
@@ -194,6 +225,9 @@ Do NOT introduce:
 - npx
 - yarn
 - pnpm
+- package.json
+- package-lock.json
+- node_modules
 - React
 - Next.js
 - Vue
@@ -202,26 +236,248 @@ Do NOT introduce:
 - Python
 - Vite
 - Webpack
-- package.json
+- Parcel
 - backend servers
 - databases
 - external frameworks
-- package managers
+- external JavaScript libraries
 - build tools
+- package managers
 
-The project must still work by simply opening:
+Do not provide any Node.js or npm setup instructions.
+
+The completed project must still work by simply opening:
 
 `index.html`
 
 in a modern browser.
 
-There must be no installation process.
+---
+
+# Preserve Privacy
+
+The existing application performs image processing locally.
+
+Keep it that way.
+
+Do NOT:
+
+- upload images
+- upload messages
+- add analytics
+- add tracking
+- send information to APIs
+- create user accounts
+- add cloud storage
+- add databases
+- store secret messages persistently
+
+Keep the application's privacy notice visible.
+
+---
+
+# Preserve PNG and LSB Behavior
+
+Do not change the application in a way that breaks its ability to:
+
+1. encode text into PNG pixel data
+2. export the encoded result as PNG
+3. reopen that PNG later
+4. recover the original message
+
+Do not convert encoded output to JPEG.
+
+Do not replace the LSB technique with an unrelated implementation.
+
+Do not modify the encoded-data format unless one of my requested features truly requires it.
+
+If you must change the format, update both the encoder and decoder consistently and explain the reason.
+
+---
+
+# Improve the Experience
+
+The customized version should still make the workflow obvious.
+
+A new user should quickly understand:
+
+### Encoding
+
+Upload Image
+
+→ Enter Secret Message
+
+→ Encode
+
+→ Download PNG
+
+### Decoding
+
+Upload Encoded PNG
+
+→ Decode
+
+→ Read Hidden Message
+
+Customization should improve this workflow, not hide it.
+
+---
+
+# Responsive Design
+
+Make sure the customized interface remains usable on:
+
+- standard laptops
+- smaller laptops
+- tablets
+- reasonably narrow browser windows
+
+Avoid layouts that only work at one exact screen size.
 
 ---
 
 # Code Editing Rules
 
-Modify the existing files:
+Work from the existing implementation.
+
+Preserve working functions whenever possible.
+
+Do not rewrite the entire `script.js` just because the visual design changed.
+
+If adding new JavaScript functionality:
+
+- keep functions organized
+- use descriptive names
+- avoid unnecessary global variables
+- preserve useful existing comments
+- add comments for meaningful new logic
+
+If most of the requested customization is visual, prefer making those changes in `style.css`.
+
+---
+
+# Test the Project After Customization
+
+Before finishing, mentally review and verify these workflows.
+
+## Encoding Test
+
+Upload a PNG.
+
+Enter:
+
+`Hello World`
+
+Encode it.
+
+Download the result.
+
+## Decoding Test
+
+Upload the downloaded encoded PNG.
+
+Decode it.
+
+The result should still be:
+
+`Hello World`
+
+## Unicode Test
+
+Test:
+
+`Hello 👋 cybersecurity 🔐`
+
+The exact text should be recovered.
+
+## Error Test
+
+Try decoding a normal PNG.
+
+The application should still correctly report that no valid hidden message exists.
+
+## Capacity Test
+
+Try encoding a message too large for the image.
+
+The capacity protection should still work.
+
+## Custom Feature Test
+
+Verify each new feature I requested works without breaking existing features.
+
+---
+
+# Final Technical Check
+
+Before completing the customization, confirm:
+
+- no Node.js was introduced
+- no npm was introduced
+- no package files were created
+- no frameworks were introduced
+- no network requests were introduced
+- no backend was introduced
+- `index.html` still opens directly
+- Encode still works
+- Decode still works
+- Unicode still works
+- PNG export still works
+- error handling still works
+- my requested new features work
+- the project looks substantially different from the starter design
+
+---
+
+# My Customization Choices
+
+Fill in and follow these instructions:
+
+### Project Name
+
+`[TYPE HERE]`
+
+### Visual Theme
+
+`[TYPE HERE]`
+
+### I Want It to Feel
+
+`[TYPE HERE]`
+
+### Feature 1
+
+`[TYPE HERE]`
+
+### Feature 2
+
+`[TYPE HERE]`
+
+### Optional Feature 3
+
+`[TYPE HERE]`
+
+### Other Changes I Want
+
+`[TYPE HERE]`
+
+---
+
+# Before Editing
+
+Before modifying the files, briefly summarize:
+
+1. the theme you understood
+2. the features you will add
+3. the parts of the existing application you will preserve
+
+Then make the changes.
+
+---
+
+# How to Respond
+
+Modify the existing:
 
 `index.html`
 
@@ -229,60 +485,22 @@ Modify the existing files:
 
 `script.js`
 
-Preserve existing working code whenever possible.
+Return the complete updated contents of each file.
 
-When adding JavaScript functionality, keep the code organized and readable.
+Clearly label each file.
 
-Do not unnecessarily rewrite the entire `script.js` file just to change the design.
+Do not create a replacement project.
 
-Do not remove useful comments from the original project.
+Do not provide Node.js, npm, or package-installation instructions.
 
----
+After the code, briefly summarize:
 
-# Before You Finish
+- what you customized
+- what features you added
+- what existing functionality you intentionally preserved
 
-Review the completed application and make sure:
+The completed application must still run by simply opening:
 
-- encoding still works
-- decoding still works
-- downloaded images still decode correctly
-- Unicode messages still work
-- error handling still works
-- my new features work
-- the interface works on desktop
-- the interface remains usable on smaller screens
-- no Node.js or external framework has been introduced
-- no network requests have been added
+`index.html`
 
-If a customization would break the existing steg functionality, preserve the steg functionality instead.
-
----
-
-# My Customization
-
-Use the following information to customize my project:
-
-**Project Name:**  
-[TYPE HERE]
-
-**Visual Theme:**  
-[TYPE HERE]
-
-**I want the app to feel:**  
-[TYPE HERE]
-
-**Feature 1:**  
-[TYPE HERE]
-
-**Feature 2:**  
-[TYPE HERE]
-
-**Optional Feature 3:**  
-[TYPE HERE]
-
-**Anything else I want changed:**  
-[TYPE HERE]
-
-Before editing the project, briefly summarize the customization you are about to make.
-
-Then modify the existing code while preserving all core steganography functionality.
+in a modern web browser.
