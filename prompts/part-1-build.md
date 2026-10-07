@@ -1,6 +1,10 @@
-You are helping me complete an existing beginner-friendly cybersecurity workshop project.
+You are helping me build a beginner-friendly cybersecurity project from scratch.
 
-I already have a starter project containing these files:
+I currently have an empty project folder.
+
+Create a complete browser-based image steganography application inside this folder.
+
+Create exactly these three required files:
 
 `index.html`
 
@@ -8,30 +12,18 @@ I already have a starter project containing these files:
 
 `script.js`
 
-The files are intentionally minimal and are already connected to each other.
-
-Your job is to MODIFY these existing files and turn them into a complete browser-based image steganography application.
-
-Do NOT create a new project structure.
-
-Do NOT create additional required files.
-
-Do NOT rename the existing files.
-
----
-
-# Critical Technology Constraint
-
-This project must use only:
+The application must use only:
 
 - HTML
 - CSS
 - Vanilla JavaScript
 - Built-in browser APIs
 
+## CRITICAL REQUIREMENT
+
 This project must NOT use Node.js in any form.
 
-Do NOT use:
+Do NOT use or create:
 
 - Node.js
 - npm
@@ -57,9 +49,11 @@ Do NOT use:
 - build tools
 - package managers
 
-Do not generate Node.js setup instructions.
+Do NOT require any terminal commands.
 
-Do not tell me to run:
+Do NOT require a development server.
+
+Do NOT provide instructions such as:
 
 `npm install`
 
@@ -69,376 +63,307 @@ Do not tell me to run:
 
 `node ...`
 
-or any similar command.
-
-The completed application must require:
-
-**ZERO package installation**
-
-**ZERO terminal setup**
-
-**ZERO development servers**
-
-A student must be able to open:
+The finished project must work by simply opening:
 
 `index.html`
 
-directly in a modern browser and use the application.
-
----
-
-# Existing Starter Files
-
-You are working with these existing files:
-
-### `index.html`
-
-This already contains the basic HTML document structure and links to:
-
-`style.css`
-
-and:
-
-`script.js`
-
-Preserve those connections.
-
-Add the application's interface inside the existing HTML document.
-
-### `style.css`
-
-This file currently contains little or no styling.
-
-Add all required application styling here.
-
-### `script.js`
-
-This file currently contains little or no JavaScript.
-
-Add all application logic here.
-
-Do not place large amounts of CSS or JavaScript directly inside `index.html`.
-
-Keep the responsibilities separated:
-
-`index.html` → structure
-
-`style.css` → appearance
-
-`script.js` → functionality
+in a modern web browser.
 
 ---
 
 # Project Goal
 
-Turn the starter files into a browser-based image steganography application.
+Build a browser-based image steganography application that allows a user to hide text inside a PNG image using Least Significant Bit (LSB) steganography and later recover that hidden text.
 
-The application should allow a user to hide a text message inside a PNG image using Least Significant Bit, or LSB, steganography.
+Everything must run locally inside the browser.
 
-The application should also be able to recover a previously hidden message from an encoded PNG image.
-
-All processing must happen locally inside the user's browser.
-
-Images and messages must NEVER be uploaded to an external server.
+Images and secret messages must never be uploaded to an external server.
 
 ---
 
-# Core Application Structure
+# File Structure
 
-Create two primary workflows:
+Create:
 
-## Encode
+`index.html`
 
-The user should be able to:
+Use this file for the structure and content of the application.
 
-1. Select or upload a PNG image.
+`style.css`
+
+Use this file for all application styling.
+
+`script.js`
+
+Use this file for the application's JavaScript and steganography logic.
+
+Make sure `index.html` correctly links to both `style.css` and `script.js`.
+
+Do not place the entire project inside one HTML file.
+
+---
+
+# Encode Feature
+
+Create an Encode section that allows the user to:
+
+1. Upload a PNG image.
 2. Preview the selected image.
 3. Enter a secret text message.
-4. See the current message length.
-5. See whether the selected image has enough capacity for the message.
-6. Encode the message into the image using LSB steganography.
-7. Preview or confirm the encoded result.
-8. Download the newly encoded image as a PNG.
-9. Reset the Encode section.
+4. See the current character count.
+5. See the approximate available capacity of the image.
+6. Encode the secret message into the image using LSB steganography.
+7. Download the encoded image as a new PNG.
+8. Reset the Encode section.
 
-## Decode
+Before encoding, verify that the image has enough capacity to contain the complete hidden message.
 
-The user should be able to:
+If the image is too small, show a clear error.
 
-1. Select or upload a PNG image.
-2. Preview the selected image.
+---
+
+# Decode Feature
+
+Create a Decode section that allows the user to:
+
+1. Upload an encoded PNG image.
+2. Preview the image.
 3. Click a Decode button.
-4. Recover the hidden message.
-5. Display the decoded message clearly.
-6. Copy the decoded message to the clipboard.
+4. Recover the hidden text.
+5. Display the recovered message clearly.
+6. Copy the recovered message to the clipboard.
 7. Reset the Decode section.
+
+If the uploaded image does not contain a valid message created by this application, display:
+
+`No valid hidden message was detected in this image.`
+
+Do not display random characters.
 
 ---
 
 # Steganography Implementation
 
-Use browser-native JavaScript and the HTML Canvas API.
+Use the browser's built-in HTML Canvas API to access the image's pixel data.
 
-The general encoding process should be:
+Use Least Significant Bit steganography.
 
-Secret text
+Conceptually:
 
-→ UTF-8 bytes
+Secret Message
+→ UTF-8 Bytes
+→ Individual Bits
+→ RGB Pixel Values
+→ Encoded PNG
 
-→ binary bits
+Use `TextEncoder` and `TextDecoder` so the application correctly supports Unicode.
 
-→ image pixel data
-
-→ Least Significant Bit modification
-
-→ encoded PNG
-
-Use `TextEncoder` and `TextDecoder` so Unicode text works correctly.
-
-Examples that should work include:
-
-`Hello World`
-
-`Cybersecurity is awesome!`
+For example, this should work:
 
 `Hello 👋 cybersecurity 🔐`
 
-Do not assume every character is a single byte.
-
----
-
-# Hidden Data Format
-
-Do not rely only on a terminating character to determine where the message ends.
-
-Use a structured format.
-
-At minimum, store:
-
-1. A small recognizable header or magic value indicating that this image was encoded by the application.
-2. The message length.
-3. The message bytes.
-
-For example, conceptually:
-
-`MAGIC HEADER | MESSAGE LENGTH | MESSAGE DATA`
-
-The decoder should first check for the expected header.
-
-If the header is not present, display a message such as:
-
-`No valid hidden message was detected in this image.`
-
-This prevents the decoder from displaying random garbage when a normal PNG is uploaded.
-
----
-
-# Least Significant Bit Requirements
-
-Use RGB pixel channels for storing hidden bits.
+Use RGB color channels to store data.
 
 Avoid modifying the alpha channel.
 
-The encoder and decoder must use the exact same method for traversing pixel data.
+The encoder and decoder must traverse the pixel data using the exact same method.
 
-Make sure the implementation clearly distinguishes between:
+---
 
-- image bytes
-- message bytes
-- individual bits
+# Hidden Message Format
 
-Add comments explaining the important parts of the algorithm.
+Use a structured hidden-data format instead of relying only on a terminating character.
+
+Store:
+
+1. A recognizable magic header.
+2. The length of the secret message in bytes.
+3. The UTF-8 message bytes.
+
+Conceptually:
+
+`MAGIC HEADER | MESSAGE LENGTH | MESSAGE DATA`
+
+The decoder must first check for the expected magic header.
+
+If the header is missing or invalid, treat the image as not containing a valid hidden message.
+
+Validate the stored message length before attempting to decode it.
 
 ---
 
 # Capacity Checking
 
-Before encoding, calculate whether the selected image can hold the full hidden payload.
+Calculate the available storage capacity based on the number of RGB channels available for LSB storage.
 
-The calculation must account for:
+Remember that the hidden payload includes:
 
-- the magic/header data
-- message-length metadata
-- the UTF-8 encoded message bytes
+- magic header
+- length metadata
+- message bytes
 
-If the message is too large, do not attempt to encode it.
+Do not attempt to encode a message if the image does not have enough capacity.
 
-Display a clear message explaining that a larger image or shorter message is required.
+Display useful capacity information in a beginner-friendly way.
 
-If possible, show useful information such as:
+For example:
 
-`Estimated capacity: 4,210 bytes`
+`Available Capacity: 4.2 KB`
 
 or:
 
-`Message uses 38% of available capacity`
-
-Keep this beginner-friendly.
+`Message uses 35% of available capacity`
 
 ---
 
 # PNG Requirement
 
-The encoded image must be exported as PNG.
+The encoded image must be downloaded as a PNG.
 
 Use:
 
 `image/png`
 
-when generating the output.
+when exporting the Canvas.
 
-Do not convert the encoded image to JPEG.
+Do NOT export the encoded image as JPEG.
 
-LSB steganography depends on exact pixel values, and lossy image compression may destroy the hidden information.
+Lossy compression can alter pixel values and destroy hidden LSB information.
 
 ---
 
 # Error Handling
 
-Handle these situations gracefully:
+Gracefully handle:
 
 - no image selected
-- unsupported file type
-- empty message
-- message too large for the selected image
-- decoding a normal image with no hidden data
-- malformed or corrupted hidden data
-- invalid message length
-- image-loading errors
+- non-PNG files
+- empty messages
+- messages that exceed image capacity
+- image-loading failures
+- normal images with no hidden message
+- corrupted hidden data
+- impossible or invalid stored message lengths
 - clipboard-copy failure
 
-Display errors and status messages inside the application.
+Display feedback inside the interface.
 
-Do not rely only on `alert()`.
+Do not rely only on browser `alert()` messages.
 
 ---
 
-# User Interface
+# Interface
 
-Keep the initial design intentionally simple.
+Create a clean, simple starter interface.
 
-This is the base application and will be redesigned later using Prompt 2.
+Include:
 
-Create a clean interface containing:
-
-- application title
-- short explanation of steganography
-- privacy notice
+- project title
+- brief explanation of steganography
 - Encode section
 - Decode section
-- image upload controls
+- PNG upload controls
 - image previews
-- secret-message textarea
-- character count
-- capacity information
+- secret-message text area
+- character counter
+- capacity indicator
 - Encode button
 - Download button
 - Decode button
-- decoded-message output
+- decoded-message display
 - Copy button
 - Reset buttons
-- clear success and error messages
+- status messages
+- error messages
 
-Make the layout responsive enough to work on laptops and smaller screens.
+Keep the initial design intentionally simple.
 
-Do not create an elaborate theme yet.
+Do NOT create an extremely elaborate visual theme because I will customize the design in the next stage of the workshop.
+
+Make the interface responsive and usable on laptops and reasonably narrow browser windows.
 
 ---
 
-# Privacy Requirements
+# Privacy
 
-Display a short privacy statement such as:
+Display this message somewhere in the interface:
 
-`All image processing happens locally in your browser. Your images and messages are never uploaded.`
+`All processing happens locally in your browser. Your images and messages are never uploaded.`
 
-Do not make any network requests.
+Do not:
 
-Do not use analytics.
+- make network requests
+- use analytics
+- use external APIs
+- upload images
+- upload messages
+- create accounts
+- use cloud storage
 
-Do not use external APIs.
-
-Do not store secret messages or uploaded images in:
+Do not store uploaded images or secret messages in persistent browser storage such as:
 
 - localStorage
 - sessionStorage
 - cookies
 - IndexedDB
 
-Keep sensitive data in memory only for the current session.
-
 ---
 
 # Code Quality
 
-Keep the code understandable for students who may be new to programming.
+This project is being used by students, including beginners.
 
-Use descriptive functions such as:
+Keep the code readable.
 
-`loadImage()`
+Use descriptive function names.
 
-`encodeMessage()`
+Separate responsibilities into reasonable functions for tasks such as:
 
-`decodeMessage()`
+- loading images
+- calculating capacity
+- converting data
+- encoding messages
+- decoding messages
+- downloading images
+- updating the interface
+- resetting sections
 
-`calculateCapacity()`
+Add comments explaining the important concepts.
 
-`downloadEncodedImage()`
+In particular, explain:
 
-`resetEncodeSection()`
-
-The exact names may differ, but keep functionality organized.
-
-Avoid one enormous function containing the entire application.
-
-Add useful comments explaining:
-
-- what LSB means
-- how the Canvas API exposes pixel data
+- what a Least Significant Bit is
+- how Canvas exposes RGB pixel values
 - how text becomes UTF-8 bytes
-- how bytes become individual bits
-- how the metadata/header works
-- how bits are written into RGB values
-- how decoding reconstructs bytes
-- why PNG is used
+- how bytes become bits
+- how bits are stored in RGB values
+- how the magic header works
+- how the message length is stored
+- how decoding reconstructs the original text
 
-Do not add unnecessary abstraction that makes the code harder for beginners to understand.
-
----
-
-# Preserve the Starter Project
-
-Because this is an existing starter project:
-
-- edit the existing `index.html`
-- edit the existing `style.css`
-- edit the existing `script.js`
-- preserve the links between them
-- do not create a replacement project
-- do not create a framework-based application
-- do not move the project into another folder structure
-- do not introduce configuration files
-
-If the starter files already contain comments, keep useful workshop comments unless they interfere with the completed application.
+Do not over-engineer the application.
 
 ---
 
-# Testing Requirements
+# Testing
 
-Before considering the implementation complete, review the code against these tests:
+Before considering the application complete, review the implementation against these tests.
 
-## Test 1
+### Test 1
 
 Encode:
 
 `Hello World`
 
-Download the generated PNG.
+Download the PNG.
 
-Upload that PNG to the Decode section.
+Upload the downloaded PNG into the Decode section.
 
-The exact message should be recovered.
+The application should recover:
 
-## Test 2
+`Hello World`
+
+### Test 2
 
 Encode:
 
@@ -446,77 +371,58 @@ Encode:
 
 The exact Unicode message should be recovered.
 
-## Test 3
+### Test 3
 
-Attempt to encode an empty message.
+Try encoding an empty message.
 
-A clear error should appear.
+The application should show an error.
 
-## Test 4
+### Test 4
 
-Attempt to decode a normal PNG that has never been encoded.
+Try decoding a normal PNG that has never been encoded.
 
-The application should report that no valid hidden message was found.
+The application should report that no valid hidden message was detected.
 
-It should not output random text.
+### Test 5
 
-## Test 5
+Try storing more data than an image can contain.
 
-Attempt to store a message larger than the image capacity.
+The application should reject the operation before modifying the image.
 
-The application should reject it before modifying the image.
+### Test 6
 
-## Test 6
+Encode a message, download the resulting PNG, reopen that file later, and decode it.
 
-Encode a message, download the PNG, close/reopen or reselect the downloaded file, and decode it.
-
-The message should still be recoverable.
+The hidden message should remain recoverable.
 
 ---
 
-# Final Review
+# Final Requirements
 
 Before finishing, confirm that:
 
-- the project still consists of the existing three core files
-- `index.html` works when opened directly
+- `index.html` exists
+- `style.css` exists
+- `script.js` exists
+- the three files are correctly connected
+- opening `index.html` directly runs the application
 - no Node.js is used
 - no npm is used
-- no packages are required
-- no framework was introduced
+- no package manager is required
+- no frameworks are used
+- no backend exists
 - no server is required
-- encoding works
-- decoding works
+- no external dependencies are required
+- Encode works
+- Decode works
 - Unicode works
-- the output remains PNG
-- normal PNG files do not produce random decoded text
-- images and messages remain local
-- the code is readable for beginners
+- PNG download works
+- capacity validation works
+- invalid images are handled correctly
+- all processing remains local
 
----
+Create the three files directly inside my project folder.
 
-# How to Respond
+Do not just describe what the code should look like. Implement the application.
 
-Modify the existing starter files.
-
-Return the completed contents of:
-
-1. `index.html`
-2. `style.css`
-3. `script.js`
-
-Clearly label each file so I know what content belongs where.
-
-Do not create any additional setup files.
-
-Do not provide npm or Node.js commands.
-
-At the end, give a short explanation of:
-
-- how the LSB implementation works
-- how the application's header and message-length format works
-- how to test the project
-
-For running the application, the only required instruction should be:
-
-**Open `index.html` in a modern web browser.**
+When finished, briefly explain what you created and tell me to test the application by opening `index.html` in my browser.

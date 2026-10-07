@@ -1,5 +1,0 @@
-/*
-  Steganography Workshop
-
-  Your JavaScript and steganography logic will go here.
-*/
