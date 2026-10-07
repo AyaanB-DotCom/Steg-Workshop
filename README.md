@@ -1,458 +1,226 @@
+
+
+Readme · MD
+<div align="center">
 # Hide in Plain Sight
-
-## Build and Customize an Image Steganography Tool with AI
-
-This workshop walks you through building a browser-based steganography application using AI-assisted coding.
-
-You will start with an empty folder, use a provided prompt to generate a working application, test it, customize it with your own prompt, and publish the finished project.
-
-By the end, you will have a project you can share through GitHub and showcase on your AWS Builder Center profile.
-
+ 
+**Build a steganography tool with AI. Customize it. Test it. Publish it.**
+ 
+A hands-on cybersecurity workshop: start with an empty folder, finish with a live web app.
+ 
+![HTML](https://img.shields.io/badge/HTML-CSS-JS-1f2937?style=flat-square)
+![No Node.js](https://img.shields.io/badge/Node.js-not%20required-1f2937?style=flat-square)
+![No Backend](https://img.shields.io/badge/Backend-none-1f2937?style=flat-square)
+![Browser Based](https://img.shields.io/badge/Runs%20in-the%20browser-1f2937?style=flat-square)
+![Beginner Friendly](https://img.shields.io/badge/Level-beginner%20friendly-1f2937?style=flat-square)
+ 
+<br>
+```text
+SETUP  ──▶  BUILD  ──▶  TEST  ──▶  CUSTOMIZE  ──▶  PUBLISH
+```
+ 
+<br>
+**[Prompt 1: Build](./prompts/prompt-1-build.md)** &nbsp;·&nbsp; **[Prompt 2: Customize](./prompts/prompt-2-customize.md)**
+ 
+</div>
 ---
-
-## What You'll Build
-
-Your application will be able to:
-
-- Upload a PNG image
-- Hide a text message inside the image
-- Download the encoded image
-- Upload an encoded image
-- Recover the hidden message
-- Handle invalid or unsupported input
-- Run entirely inside the browser
-- Be customized with your own design and features
-
-The project uses:
-
-- HTML
-- CSS
-- Vanilla JavaScript
-- HTML Canvas API
-- Least Significant Bit steganography
-
-No backend is required.
-
----
-
-## No Complicated Setup
-
-You do **not** need:
-
-- Node.js
-- npm
-- Python
-- React
-- Vite
-- A database
-- A development server
-- Git installed on your computer
-
-The final application will consist of only:
-
+ 
+## What You're Building
+ 
+A browser-based tool that hides text inside PNG images using Least Significant Bit (LSB) steganography. Everything runs locally. Nothing is uploaded anywhere.
+ 
+| Capability | Description |
+| :--- | :--- |
+| **Encode** | Upload a PNG, hide a text message, download the encoded image |
+| **Decode** | Upload an encoded PNG and recover the hidden message |
+| **Validate** | Handle empty input, oversized messages, and images with no hidden data |
+| **Customize** | Add your own name, visual theme, and features |
+ 
+The finished project is three files:
+ 
 ```text
 index.html
 style.css
 script.js
 ```
-
-You will be able to run it by opening:
-
-```text
-index.html
-```
-
-directly in your browser.
-
+ 
 ---
-
-# Workshop Flow
-
-```text
-Create AWS Builder Profile
-        ↓
-Create Empty Project Folder
-        ↓
-Use Prompt 1
-        ↓
-Build the Base Application
-        ↓
-Test the Application
-        ↓
-Use Prompt 2
-        ↓
-Customize Your Project
-        ↓
-Test Again
-        ↓
-Publish
-        ↓
-Showcase Your Work
-```
-
+ 
+## Zero Setup
+ 
+> **Open `index.html` in a modern browser. That's it.**
+> No installs, no terminal, no local server.
+ 
+| Used | Not required |
+| :--- | :--- |
+| HTML | Node.js |
+| CSS | npm |
+| Vanilla JavaScript | Python |
+| Canvas API | React / Vite |
+| TextEncoder / TextDecoder | Backend or database |
+| | Git installed locally |
+ 
+> [!NOTE]
+> If your AI assistant generates `package.json`, `node_modules/`, or `package-lock.json`, stop it. Remind it that the project must use only HTML, CSS, and vanilla JavaScript.
+ 
 ---
-
-# 1. Set Up Your AWS Builder Profile
-
-Before starting the project, create your AWS Builder identity and Builder Center profile.
-
-Your finished project can later be added to your profile as something you built during the workshop.
-
-Once your profile is ready, continue to the coding portion.
-
+ 
+## Workshop Flow
+ 
+| Phase | What happens |
+| :--- | :--- |
+| **1. Setup** | Create your AWS Builder profile. Create an empty folder (for example `steg-project`) and open it in your AI coding tool with permission to create and edit files. |
+| **2. Build** | Give the AI **Prompt 1**. It creates `index.html`, `style.css`, and `script.js`. |
+| **3. Test** | Run the five tests below. Skim the generated code. Fix what breaks. |
+| **4. Customize** | Edit **Prompt 2** with your own name, theme, and features, then give it to the AI. |
+| **5. Publish** | Retest, upload to GitHub from your browser, optionally deploy with GitHub Pages, and add the project to AWS Builder Center. |
+ 
 ---
-
-# 2. Create Your Project Folder
-
-Create a new folder somewhere on your computer.
-
-You can name it anything you want.
-
-For example:
-
-```text
-steg-project
-```
-
-Your folder should initially be empty.
-
-Do not worry about creating any code files yourself.
-
-Prompt 1 will instruct your AI coding assistant to create them.
-
----
-
-# 3. Open the Folder in Your AI Coding Tool
-
-Open your empty project folder in the AI coding environment you are using for the workshop.
-
-Make sure the AI has permission to create and modify files inside that folder.
-
-You should still have an empty directory at this point.
-
----
-
-# 4. Build the Base Application
-
-Open:
-
-[`prompts/prompt-1-build.md`](./prompts/prompt-1-build.md)
-
-Copy the entire prompt and provide it to your AI coding assistant.
-
-Prompt 1 will instruct the AI to create:
-
-```text
-index.html
-style.css
-script.js
-```
-
-and build the first version of your steganography application.
-
-The base version should focus on functionality rather than visual customization.
-
----
-
-## Expected Project Structure
-
-After Prompt 1 finishes, your folder should look like this:
-
+ 
+## Workshop Prompts
+ 
+| | Prompt | Purpose |
+| :--- | :--- | :--- |
+| **1** | [`prompts/prompt-1-build.md`](./prompts/prompt-1-build.md) | Builds the first working application from an empty folder. |
+| **2** | [`prompts/prompt-2-customize.md`](./prompts/prompt-2-customize.md) | Customizes the working project while preserving its steganography functionality. |
+ 
+### Using Prompt 1
+ 
+Copy the **entire** prompt into your AI coding assistant. When it finishes, your folder should look like this:
+ 
 ```text
 steg-project/
-│
 ├── index.html
 ├── style.css
 └── script.js
 ```
-
-There should be no:
-
+ 
+Open `index.html` in your browser. The base version focuses on function, not looks.
+ 
+---
+ 
+## What Is Steganography?
+ 
+Steganography hides information inside other data. Here, the message lives in the pixel values of a PNG.
+ 
+Each pixel stores red, green, and blue values as binary. The app changes only the **last bit** of selected values:
+ 
 ```text
-package.json
-node_modules/
-package-lock.json
+Original:   10110110
+Encoded:    10110111
+                   ▲
+          Least Significant Bit
 ```
-
-or other Node.js-related files.
-
-If your AI generates them, stop and remind it that the project must use only HTML, CSS, and vanilla JavaScript.
-
----
-
-# 5. Run the Application
-
-Open:
-
+ 
+That change is too small to see, but across thousands of pixels it is enough to store a message.
+ 
+| | Goal |
+| :--- | :--- |
+| **Encryption** | Hides the *meaning* of information |
+| **Steganography** | Hides the *existence* of information |
+ 
+<details>
+<summary><b>Why PNG?</b></summary>
+<br>
+PNG is lossless, so exact pixel values are preserved. JPEG is lossy and can alter those values, destroying the hidden data.
+ 
 ```text
-index.html
+PNG   →  Recommended
+JPEG  →  Do not use for encoded output
 ```
-
-in a modern web browser.
-
-There should be:
-
-- no installation
-- no terminal commands
-- no package setup
-- no local server
-
-The application should run directly in the browser.
-
----
-
-# 6. Understand What You Built
-
-The project uses image steganography.
-
-Steganography is the practice of hiding information inside another piece of data.
-
-In this project, your secret message is stored inside the pixel values of a PNG image.
-
-A pixel may contain RGB values represented in binary:
-
+ 
+</details>
+<details>
+<summary><b>Privacy</b></summary>
+<br>
+The app is designed to work entirely on your device. Your image and message never need to leave your browser.
+ 
 ```text
-Red:   10110110
-Green: 01100101
-Blue:  11010010
+Your Image  →  Browser  →  JavaScript + Canvas  →  Encoded Image
 ```
-
-The application changes the final bit of selected color values.
-
-For example:
-
+ 
+</details>
+---
+ 
+## Test Before You Customize
+ 
+> **AI-generated code is not automatically correct.**
+> Build, test, break, fix, then customize.
+ 
+Do not move on until the base application passes every test.
+ 
+| # | Test | Input | Expected result |
+| :-: | :--- | :--- | :--- |
+| 1 | **Basic message** | Encode `Hello World`, download the PNG, upload it to Decode | Recovers `Hello World` |
+| 2 | **Unicode** | `Hello 👋 cybersecurity 🔐` | Recovers the exact same message |
+| 3 | **Empty input** | Click Encode with no message | Shows an error and stops |
+| 4 | **Normal PNG** | Decode a PNG that was never encoded | Reports no valid hidden message, with no random characters |
+| 5 | **Capacity** | A message too large for the image | Detects insufficient capacity |
+ 
+### Review the generated code
+ 
+You don't need to understand every line. Find these:
+ 
+| File | Locate |
+| :--- | :--- |
+| `index.html` | Upload controls, message input, Encode and Decode buttons, output areas |
+| `style.css` | Colors, spacing, layout, button styles, image preview styles |
+| `script.js` | Image loading, encoding, decoding, capacity calculation, PNG download |
+ 
+---
+ 
+## Customize
+ 
+Open [`prompts/prompt-2-customize.md`](./prompts/prompt-2-customize.md) and edit it before giving it to your AI. Choose:
+ 
+- **A project name**
+- **A visual theme**
+- **1 to 3 custom features**
+Your final project needs at least one meaningful difference from the base version.
+ 
+| Themes | Features |
+| :--- | :--- |
+| Retro terminal | Drag-and-drop upload |
+| Classified intelligence system | Message capacity meter |
+| Cyberpunk | Before/after comparison |
+| Sci-fi interface | Custom download filename |
+| Y2K | Image metadata panel |
+| Frutiger Aero | Binary visualization |
+| Windows XP | LSB explanation panel |
+| Early-2000s web | Improved success and error feedback |
+| Brutalist | Dark/light mode |
+| Minimal | Character counter, full-screen preview |
+ 
+**Project name ideas:** `GhostPixel` · `PixelVault` · `HiddenFrame` · `StegLab` · `GhostByte` · `Veil`. Make up your own.
+ 
+### Be specific
+ 
+Vague prompts get vague results.
+ 
 ```text
-10110110
+Weak:    Make the website cooler.
+ 
+Strong:  Rename the project to GhostPixel.
+ 
+         Redesign the application to resemble a classified 1980s
+         intelligence terminal. Use monochrome typography,
+         terminal-style panels, subtle scanlines, and restrained
+         animations.
+ 
+         Add an image capacity meter and an educational panel
+         explaining how LSB steganography works.
+ 
+         Do not change the existing encoding or decoding algorithm.
 ```
-
-may become:
-
-```text
-10110111
-```
-
-This is called modifying the **Least Significant Bit**, or LSB.
-
-The change is extremely small, so the image should appear visually unchanged while still containing hidden data.
-
+ 
 ---
-
-## Steganography vs. Encryption
-
-They are not the same thing.
-
-**Encryption** attempts to make the contents of a message unreadable.
-
-**Steganography** attempts to hide the fact that a message exists.
-
-This project focuses on steganography.
-
----
-
-# 7. Test the Base Project
-
-Do not move on to customization until the basic application works.
-
-## Test 1 — Basic Message
-
-Upload a PNG and encode:
-
-```text
-Hello World
-```
-
-Download the resulting image.
-
-Upload that encoded image into the Decode section.
-
-You should recover:
-
-```text
-Hello World
-```
-
----
-
-## Test 2 — Unicode
-
-Try:
-
-```text
-Hello 👋 cybersecurity 🔐
-```
-
-The application should recover the exact same message.
-
----
-
-## Test 3 — Empty Input
-
-Try encoding without entering a message.
-
-The application should display an error instead of continuing.
-
----
-
-## Test 4 — Normal Image
-
-Try decoding a PNG that has never been encoded by your application.
-
-The application should report that no valid hidden message was found.
-
-It should not display random characters.
-
----
-
-## Test 5 — Capacity
-
-Try entering a message that is too large for the selected image.
-
-The application should detect that the image does not have enough capacity.
-
----
-
-# 8. Review the AI-Generated Code
-
-Before customizing your project, take a few minutes to inspect what the AI created.
-
-You do not need to understand every line.
-
-Try to identify:
-
-### `index.html`
-
-Where are the:
-
-- image upload controls
-- message input
-- Encode button
-- Decode button
-- output areas
-
-### `style.css`
-
-Where are the:
-
-- colors
-- spacing
-- layout
-- button styles
-- image preview styles
-
-### `script.js`
-
-Try to locate functions related to:
-
-- image loading
-- encoding
-- decoding
-- capacity calculation
-- downloading the PNG
-
-The purpose of this workshop is not only to generate code.
-
-You should have a basic understanding of what the generated application is doing.
-
----
-
-# 9. Make the Project Your Own
-
-Once the base application works, open:
-
-[`prompts/prompt-2-customize.md`](./prompts/prompt-2-customize.md)
-
-Prompt 2 allows you to define your own:
-
-- project name
-- visual style
-- theme
-- features
-- user experience
-
-You should customize the prompt before giving it to your AI assistant.
-
----
-
-## Example
-
-Instead of writing:
-
-```text
-Make the website cooler.
-```
-
-give the AI a clear direction:
-
-```text
-Rename the project to GhostPixel.
-
-Redesign the application to resemble a classified 1980s intelligence
-terminal.
-
-Use monochrome typography, terminal-style panels, subtle scanlines,
-and restrained animations.
-
-Add an image capacity meter and an educational panel explaining how
-LSB steganography works.
-
-Do not change the existing encoding or decoding algorithm.
-```
-
-Specific instructions usually produce better results.
-
----
-
-# 10. Customization Ideas
-
-## Visual Styles
-
-You could try:
-
-- Retro terminal
-- Y2K
-- Frutiger Aero
-- Windows XP
-- Minimalist
-- Cyberpunk
-- Classified intelligence system
-- Vaporwave
-- Sci-fi interface
-- Early-2000s web design
-- Futuristic laboratory
-- Brutalist interface
-- Something completely original
-
----
-
-## Feature Ideas
-
-Try adding one or more features such as:
-
-- Drag-and-drop image upload
-- Message capacity meter
-- Character counter
-- Before-and-after image comparison
-- Custom download filename
-- Image information panel
-- Dark/light mode
-- Animated encoding sequence
-- Binary visualization
-- Steganography explanation panel
-- Full-screen image preview
-- Better success and error feedback
-
-Your final project should have at least one meaningful difference from the base version.
-
----
-
-# 11. Test Again
-
-Customization can accidentally break working code.
-
-After using Prompt 2, repeat your tests.
-
-Before publishing, confirm:
-
+ 
+## Final Validation Checklist
+ 
+Customization can break working code. Repeat your tests, then confirm everything below before publishing.
+ 
+**Functionality**
+ 
 - [ ] PNG upload works
 - [ ] Image preview works
 - [ ] Messages can be encoded
@@ -463,254 +231,112 @@ Before publishing, confirm:
 - [ ] Capacity checking still works
 - [ ] Your new features work
 - [ ] The interface is usable
-- [ ] No Node.js was added
-- [ ] No npm dependencies were added
-- [ ] No backend was added
-- [ ] No images or messages are being uploaded
+**Constraints**
+ 
+- [ ] No Node.js added
+- [ ] No npm dependencies added
+- [ ] No backend added
+- [ ] No images or messages are uploaded anywhere
 - [ ] `index.html` still runs directly in the browser
-
+> [!TIP]
+> **Final challenge:** hand your app to someone else without explaining it. Can they upload an image, hide a message, download it, and decode it? If not, improve the interface.
+ 
 ---
-
-# 12. Privacy
-
-This project is intentionally designed to operate locally.
-
-The expected flow is:
-
-```text
-Your Image
-    ↓
-Your Browser
-    ↓
-JavaScript + Canvas
-    ↓
-Encoded Image
-```
-
-Your application should not need to send the image or hidden message to an external server.
-
-This is one of the reasons the project uses browser-native technologies.
-
----
-
-# Why This Project Uses PNG
-
-PNG uses lossless image compression.
-
-LSB steganography depends on preserving precise pixel values.
-
-Lossy formats such as JPEG may modify those values and destroy the hidden data.
-
-For this workshop:
-
-```text
-PNG  → Recommended
-JPEG → Do not use for encoded output
-```
-
----
-
-# 13. Name Your Project
-
-Give your project its own identity before publishing it.
-
-Examples:
-
-```text
-GhostPixel
-PixelVault
-HiddenFrame
-StegLab
-CipherCanvas
-GhostByte
-ShadowPixel
-Veil
-```
-
-These are examples only.
-
-Try to create something unique.
-
----
-
-# 14. Publish to GitHub
-
-You do **not** need Git installed.
-
-Go to GitHub in your browser and create a new repository.
-
-Example:
-
-```text
-ghostpixel-steganography
-```
-
-Then use GitHub's browser interface to upload:
-
-```text
-index.html
-style.css
-script.js
-```
-
-You can also create your own project README.
-
-Your repository should eventually look something like:
-
+ 
+## Publish to GitHub
+ 
+No Git required. Everything happens in your browser.
+ 
+1. Go to [github.com](https://github.com) and create a new repository, for example `ghostpixel-steganography`.
+2. Choose **Add file → Upload files**.
+3. Upload:
+   - `index.html`
+   - `style.css`
+   - `script.js`
+   - `README.md` (optional, your own project README)
+4. Commit the changes through the GitHub interface.
 ```text
 ghostpixel-steganography/
-│
 ├── index.html
 ├── style.css
 ├── script.js
 └── README.md
 ```
-
+ 
 ---
-
-# 15. Optional — Publish the Website
-
-Because your project is a static website, you can optionally publish it using a static hosting service such as GitHub Pages.
-
-That turns your local project into something others can open in their browser.
-
+ 
+## Optional: GitHub Pages
+ 
+Because the project is a static site, GitHub Pages can turn your repository into a live web app that anyone can open.
+ 
 ```text
-Local Project
-     ↓
-GitHub Repository
-     ↓
-Published Website
+Local Project  →  GitHub Repository  →  Live Website
 ```
-
+ 
+In your repository, open **Settings → Pages** and publish from your main branch.
+ 
 ---
-
-# 16. Showcase Your Project
-
-Once your project is complete, add it to your AWS Builder Center profile.
-
-Consider including:
-
-## Project Name
-
-Your custom project name.
-
-## Description
-
-Example:
-
-```text
-A browser-based image steganography application that hides text
-inside PNG images using Least Significant Bit encoding.
-```
-
-## Technologies
-
-```text
-HTML
-CSS
-JavaScript
-Canvas API
-```
-
-## Concepts
-
-```text
-Steganography
-LSB Encoding
-Browser Image Processing
-AI-Assisted Development
-Testing
-Debugging
-Prompt Engineering
-```
-
-You can also include links to your GitHub repository and published application if available.
-
+ 
+## Showcase on AWS Builder Center
+ 
+Add the finished project to your Builder Center profile.
+ 
+| Field | What to include |
+| :--- | :--- |
+| **Project name** | Your custom name |
+| **Description** | One or two plain sentences on what it does |
+| **Technologies** | HTML, CSS, JavaScript, Canvas API |
+| **Concepts** | Steganography, LSB encoding, browser image processing, AI-assisted development, testing, debugging, prompt engineering |
+| **GitHub link** | Your repository URL |
+| **Live link** | Your GitHub Pages URL, if deployed |
+ 
+**Example description**
+ 
+> A browser-based image steganography application that hides text inside PNG images using Least Significant Bit encoding.
+ 
 ---
-
-# Final Challenge
-
-Have someone else try your application without explaining how to use it.
-
-Ask them to:
-
-1. Upload an image
-2. Hide a message
-3. Download the encoded image
-4. Decode the message
-
-If they cannot understand the workflow, improve your interface.
-
-A project should not only work.
-
-It should also be understandable.
-
----
-
-# What You Practiced
-
-By completing this workshop, you worked with:
-
-- Basic steganography
-- Least Significant Bit encoding
-- Image pixel manipulation
-- HTML
-- CSS
-- JavaScript
-- Browser APIs
-- AI-assisted development
-- Prompt writing
-- Testing
-- Debugging
-- GitHub
-- AWS Builder Center
-- Project publishing
-
-More importantly, you followed a real development loop:
-
+ 
+## What You Practiced
+ 
+| Skills | Concepts |
+| :--- | :--- |
+| HTML, CSS, JavaScript | Steganography and LSB encoding |
+| Canvas and browser APIs | Image pixel manipulation |
+| Prompt writing | AI-assisted development |
+| Testing and debugging | Publishing with GitHub |
+ 
 ```text
-Define
-  ↓
-Build
-  ↓
-Test
-  ↓
-Customize
-  ↓
-Debug
-  ↓
-Publish
+Define  →  Build  →  Test  →  Customize  →  Debug  →  Publish
 ```
-
+ 
 ---
-
-# Workshop Files
-
+ 
+## Educational Use
+ 
+This workshop is for learning: steganography, browser image manipulation, AI-assisted development, prompting, testing, debugging, and publishing.
+ 
+Do not use it to conceal malicious content, bypass security controls, or violate applicable rules, policies, or laws.
+ 
+---
+ 
+<div align="center">
+## Start Here
+ 
+Create an empty folder, open it in your AI coding tool, and give it Prompt 1.
+ 
+### [Open Prompt 1: Build →](./prompts/prompt-1-build.md)
+ 
+</div>
+<details>
+<summary><b>Repository files</b></summary>
+<br>
 ```text
 .
 ├── README.md
-│
 └── prompts/
     ├── prompt-1-build.md
     └── prompt-2-customize.md
 ```
-
----
-
-## Educational Use
-
-This workshop is intended for learning and experimentation.
-
-Do not use the project to conceal malicious content, bypass security controls, or violate applicable rules, policies, or laws.
-
-The goal is to understand how steganography works, how AI can assist with development, and why generated code should still be reviewed and tested.
-
----
-
-## Start Here
-
-Open:
-
-[`prompts/prompt-1-build.md`](./prompts/prompt-1-build.md)
-
-Create an empty project folder, give Prompt 1 to your AI coding assistant, and start building.
+ 
+</details>
+ 
